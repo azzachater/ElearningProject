@@ -1,4 +1,5 @@
 <?php
+use App\Http\Controllers\SubscriptionController;
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -244,6 +245,8 @@ Route::controller(CourseController::class)->group(function(){
     Route::post('/update/course/video','UpdateCourseVideo')->name('update.course.video');
     Route::post('/update/course/goal','UpdateCourseGoal')->name('update.course.goal');
     Route::get('/delete/course/{id}','DeleteCourse')->name('delete.course');
+    //Route::get('type/{id}', 'showCoursesByType')->name('type.all.courses');
+
 });
 
 
@@ -319,6 +322,10 @@ Route::post('/add-to-wishlist/{course_id}', [WishListController::class, 'AddToWi
 Route::post('/cart/data/store/{id}', [CartController::class, 'AddToCart']);
 Route::post('/buy/data/store/{id}', [CartController::class, 'AddToCart']);
 Route::get('/cart/data/', [CartController::class, 'CartData']);
+Route::get('type/{id}', [CourseController::class, 'showCoursesByType'])->name('type.all.courses');
+
+
+
 
 // Get Data from Minicart
 Route::get('/course/mini/cart/', [CartController::class, 'AddMiniCart']);
@@ -351,4 +358,9 @@ Route::get('/blog', [BlogController::class, 'BlogList'])->name('blog');
 Route::post('/mark-notification-as-read/{notification}', [CartController::class, 'MarkAsRead']);
 ///// End Route Accessable for All
 
+
+
+//Route::get('type/{id}', [CourseController::class, 'showCoursesByType'])->name('type.all.courses');
+Route::post('/subscribe', [SubscriptionController::class, 'subscribe'])->name('subscribe');
+Route::get('/instructor/dashboard', [InstructorController::class, 'instructordashboard'])->name('instructor.dashboard');
 

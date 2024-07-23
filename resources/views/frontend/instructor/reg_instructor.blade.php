@@ -341,15 +341,38 @@
         </div><!-- end input-box -->
 
         <div class="input-box col-lg-6">
-            <label class="label-text">Email</label>
-            <div class="form-group">
-                <input class="form-control form--control @error('email') is-invalid @enderror" type="email" name="email"  >
-                <span class="la la-user input-icon"></span>
-                @error('email')
-                    <span class="text-danger">{{ $message }}</span>
-                @enderror
-            </div>
-        </div><!-- end input-box -->
+    <label class="label-text">Number of years of experience</label>
+    <div class="form-group">
+        <input class="form-control form--control @error('years_of_experience') is-invalid @enderror" type="number" name="years_of_experience" value="{{ old('years_of_experience') }}">
+        <span class="la la-user input-icon"></span>
+        @error('years_of_experience')
+            <span class="text-danger">{{ $message }}</span>
+        @enderror
+    </div>
+   </div><!-- end input-box -->
+
+   <div class="input-box col-lg-6">
+    <label class="label-text">Certification</label>
+    <div class="form-group">
+        <input class="form-control form--control @error('certifications') is-invalid @enderror" type="text" name="certifications" value="{{ old('certifications') }}">
+        <span class="la la-user input-icon"></span>
+        @error('certifications')
+            <span class="text-danger">{{ $message }}</span>
+        @enderror
+    </div>
+</div><!-- end input-box -->
+
+<div class="input-box col-lg-6">
+    <label class="label-text">Areas of Specialization</label>
+    <div class="form-group">
+        <input class="form-control form--control @error('specialization') is-invalid @enderror" type="text" name="specialization" value="{{ old('specialization') }}">
+        <span class="la la-user input-icon"></span>
+        @error('specialization')
+            <span class="text-danger">{{ $message }}</span>
+        @enderror
+    </div>
+</div><!-- end input-box -->
+
 
 
         <div class="input-box col-lg-6">
@@ -363,7 +386,19 @@
             </div>
         </div><!-- end input-box -->
 
-        <div class="input-box col-lg-12">
+        <div class="input-box col-lg-6">
+    <label class="label-text">Last position held</label>
+    <div class="form-group">
+        <input class="form-control form--control @error('last_position') is-invalid @enderror" type="text" name="last_position" value="{{ old('last_position') }}">
+        <span class="la la-user input-icon"></span>
+        @error('last_position')
+            <span class="text-danger">{{ $message }}</span>
+        @enderror
+    </div>
+</div><!-- end input-box -->
+
+
+        <div class="input-box col-lg-6">
             <label class="label-text">Address</label>
             <div class="form-group">
                 <input class="form-control form--control @error('address') is-invalid @enderror" type="text" name="address"  >

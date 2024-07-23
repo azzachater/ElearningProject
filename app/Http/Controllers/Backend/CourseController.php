@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\SubCategory;
+use App\Models\Type;
 use App\Models\Course;
 use App\Models\Course_goal;
 use App\Models\CourseSection;
@@ -23,11 +24,17 @@ class CourseController extends Controller
         return view('instructor.courses.all_course',compact('courses'));
 
     }// End Method
+    public function showCoursesByType($id)
+    {
+        return view('frontend.type.type-all', ['type_id' => $id]);
+    }
+    
 
     public function AddCourse(){
 
         $categories = Category::latest()->get();
-        return view('instructor.courses.add_course',compact('categories'));
+        $types = Type::all(); // Récupère tous les types de cours
+        return view('instructor.courses.add_course',compact('categories', 'types'));
        
     }// End Method
     public function GetSubCategory($category_id){

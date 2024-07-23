@@ -6,12 +6,16 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use App\Models\course;
+
 
 class instructorcontroller extends Controller
 {
     public function instructordashboard(){
-        return view('instructor.index');
-    }  //end method
+        $courses = Course::with(['category', 'type', 'instructor'])->where('instructor_id', Auth::id())->get();
+        return view('instructor.index', compact('courses'));
+    }
+     //end method
     public function InstructorLogout(Request $request) {
         Auth::guard('web')->logout();
 
@@ -103,10 +107,19 @@ class instructorcontroller extends Controller
             'alert-type' => 'success'
         );
         return back()->with($notification);
+        
 
     }// End Method
 
-
+    public function showCourses()
+    {
+        // Fetch the courses data
+        $courses = Course::with(['category', 'type'])->get();
+    
+        // Pass the data to the view
+        return view('instructor.index', compact('courses'));
+    }
+    
 
 
 }

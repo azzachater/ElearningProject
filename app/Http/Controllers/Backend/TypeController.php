@@ -16,6 +16,7 @@ class TypeController extends Controller
         return view('admin.backend.type.all_type',compact('type'));
 
     }// End Method
+    
 
     public function AddType(){
         return view('admin.backend.type.add_type');

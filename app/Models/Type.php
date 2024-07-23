@@ -8,5 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Type extends Model
 {
     use HasFactory;
-    protected $guarded = [];
+
+    // Définir explicitement le nom de la table
+    protected $table = 'types';
+    
+    protected $fillable = [
+        'type_name',
+        'description',
+        'image',
+    ];
 }

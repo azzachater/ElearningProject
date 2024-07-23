@@ -15,11 +15,13 @@
                 </div><!-- end section-heading -->
             </div><!-- end col-lg-5 -->
             <div class="col-lg-5 ml-auto">
-                <form method="post" class="subscriber-form">
+                <form method="post" action="{{ route('subscribe') }}" class="subscriber-form">
+                    @csrf <!-- Protection CSRF -->
+
                     <div class="input-group">
-                        <input type="email" name="email" class="form-control form--control pl-3" placeholder="Enter email address">
+                        <input type="email" name="email" class="form-control form--control pl-3" placeholder="Enter email address" required>
                         <div class="input-group-append">
-                            <button class="btn theme-btn" type="button">Subscribe <i class="la la-arrow-right icon ml-1"></i></button>
+                            <button class="btn theme-btn" type="submit">Subscribe <i class="la la-arrow-right icon ml-1"></i></button>
                         </div>
                     </div>
                     <p class="fs-14 mt-1">

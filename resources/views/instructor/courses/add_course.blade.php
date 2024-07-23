@@ -79,8 +79,11 @@
                 <label for="input1" class="form-label">Course type </label>
                 <select name="type_id" class="form-select mb-3" aria-label="Default select example">
                     <option selected="" disabled>Open this select menu</option>
-                  
+                    @foreach ($types as $type)
+                    <option value="{{ $type->id }}">{{ $type->type_name }}</option>
+                   @endforeach
                     
+                
                 
                  
                     

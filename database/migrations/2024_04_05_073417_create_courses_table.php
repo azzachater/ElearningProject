@@ -25,6 +25,7 @@ return new class extends Migration
             $table->longText('description')->nullable();
             $table->string('video')->nullable();
             $table->string('label')->nullable();
+
             $table->string('duration')->nullable();
             $table->string('duration_online')->nullable();
             $table->string('duration_offline')->nullable();
